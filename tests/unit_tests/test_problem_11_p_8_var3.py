@@ -1,10 +1,12 @@
 import pytest
+from arshan.problem_11_p_8_var3_arshan import Problem11P8Var3Arshan
 from vlad.problem_11_p_8_var3_vlad import Problem11P8Var3Vlad
 from protocol.problem_11_p_8_var3 import Building
 
 
 class TestProblem11P8Var3(object):
     def instantiate_solution(self):
+        return Problem11P8Var3Arshan()
         return Problem11P8Var3Vlad()
 
     """

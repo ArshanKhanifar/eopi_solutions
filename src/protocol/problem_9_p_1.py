@@ -99,18 +99,18 @@ class BinaryTreeFactory(object):
 
     @classmethod
     def ordered_walk(cls, node, order):
-        def _ordered_recursive(node, out):
+        def _ordered_recursive(node):
             order_lookup = {
-                'l': lambda node, out: _ordered_recursive(node.left, out),
-                'r': lambda node, out: _ordered_recursive(node.right, out),
-                'n': lambda node, out: out.append(node.data),
+                'l': lambda node: _ordered_recursive(node.left),
+                'r': lambda node: _ordered_recursive(node.right),
+                'n': lambda node: out.append(node.data),
             }
             if not node:
                 return
             for c in order:
                 order_lookup[c](node, out)
         out = []
-        _ordered_recursive(node, out)
+        _ordered_recursive(node)
         return out
 
 

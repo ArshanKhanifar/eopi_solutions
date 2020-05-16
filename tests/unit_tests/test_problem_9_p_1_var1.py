@@ -7,8 +7,8 @@ from protocol.problem_9_p_1 import BinaryTree, BinaryTreeFactory
 
 class TestProblem9P1Var1(object):
     def instantiate_solution(self):
-        return Problem9P1Var1Arshan()
         return Problem9P1Var1Vlad()
+        return Problem9P1Var1Arshan()
 
     @pytest.mark.parametrize("tree_data, largest_subtree", [
         ([2, 3, 1], 3),

@@ -1,9 +1,12 @@
 import pytest
+
+from arshan.problem_11_p_8_arshan import Problem11P8Arshan
 from vlad.problem_11_p_8_vlad import Problem11P8Vlad
 
 
 class TestProblem11P8(object):
     def instantiate_solution(self):
+        return Problem11P8Arshan()
         return Problem11P8Vlad()
 
     @pytest.mark.parametrize("non_sorted_list, k, kth_largest_element", [
