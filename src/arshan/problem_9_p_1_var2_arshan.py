@@ -15,8 +15,6 @@ class Problem9P1Var2Arshan(Problem9P1Var2):
             if abs(l - r) > k:
                 if lb and rb:
                     self.not_k_nodes.append(node)
-                return l + r + 1, False
-            else:
-                return l + r + 1, True
+            return l + r + 1, abs(l - r) < k
         check_size(binary_tree)
         return self.not_k_nodes[0].data

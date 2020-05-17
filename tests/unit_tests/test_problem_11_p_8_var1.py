@@ -1,9 +1,12 @@
 import pytest
+
+from arshan.problem_11_p_8_var1_arshan import Problem11P8Var1Arshan
 from vlad.problem_11_p_8_var1_vlad import Problem11P8Var1Vlad
 
 
 class TestProblem11P8Var1(object):
     def instantiate_solution(self):
+        return Problem11P8Var1Arshan()
         return Problem11P8Var1Vlad()
 
     @pytest.mark.parametrize("non_sorted_list, median", [
