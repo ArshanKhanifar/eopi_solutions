@@ -12,7 +12,8 @@ class Problem16P1Vlad(Problem16P1):
         # return len(self.some_recursive_shit(final_score, play_scores))
         # return len(self.some_recursive_shit_with_good_memeory(final_score,
         #                                                    play_scores))
-        return self.dp_af(final_score, play_scores)
+        # return self.dp_af(final_score, play_scores)
+        return self.even_more_dp(final_score, play_scores)
 
     """"
     if we call x = final_score // min(play_scores) 
@@ -97,3 +98,33 @@ class Problem16P1Vlad(Problem16P1):
                               if j >= play_score[i] else 0)
                 combo_count_cache[i][j] = (with_score + without_score)
         return combo_count_cache[-1][-1]
+
+    # this is var 1
+    # Damnnnnn!!!!!!!!!!!!!!!!!!!! you never needed all that memory :o
+    def even_more_dp(self, final_score, play_score):
+        combo_count_cache = [1] + [0] * final_score
+
+        for i in range(len(play_score)):
+            for j in range(1, final_score + 1):
+                with_score = (combo_count_cache[j - play_score[i]]
+                              if j >= play_score[i] else 0)
+                combo_count_cache[j] += with_score
+        return combo_count_cache[-1]
+
+    # this is for var 2 and it's crazy what changing looping order does!!!
+    def all_seq_dp(self, final_score, play_score):
+        combo_count_cache = [1] + [0] * final_score
+
+        for j in range(1, final_score + 1):
+            for i in range(len(play_score)):
+                with_score = (combo_count_cache[j - play_score[i]]
+                              if j >= play_score[i] else 0)
+                combo_count_cache[j] += with_score
+        return combo_count_cache[-1]
+
+    # var 3 is just multiple all sequences for each team
+
+    # var 4
+
+    # var 5 is literally same question as var 2 you just change k to list(
+    # range(k)) and set to play_score
